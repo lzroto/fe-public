@@ -1,6 +1,9 @@
+import { useWindowSize } from "../../utils";
 import { carditemmodel } from "./model"
 
 const Carditem = ({img,title,price}) => {
+  const size = useWindowSize();
+
   const data = new carditemmodel(
     "https://i.ibb.co/P68znF8/Screen-Shot-2022-08-10-at-17-33-55.png",
     "HRV 1,5E CVT matic warna abu2 metalik thn 2017",
@@ -22,8 +25,8 @@ const Carditem = ({img,title,price}) => {
       alt="Girl in a jacket" 
       style={{
         width: '100%',
-        height: '8rem',
-        objectFit: 'contain'
+        height: size.width < 450 ? '12rem' : '8rem',
+        objectFit: 'cover'
       }}
       />
     )
@@ -49,8 +52,8 @@ const Carditem = ({img,title,price}) => {
 
   return(
     <div style={{
-      width: '12rem',
-      height: '15rem',
+      width: size.width < 450 ? '100%' : '12rem',
+      height: size.width < 450 ? '20rem' : '15rem',
       borderWidth: 1,
       borderColor: '#F0F0F0',
       borderStyle: 'solid',
