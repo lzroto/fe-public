@@ -1,13 +1,13 @@
 import { useWindowSize } from "../../utils";
 import { carditemmodel } from "./model"
 
-const Carditem = ({img,title,price}) => {
+const Carditem = ({img,title,phone}) => {
   const size = useWindowSize();
 
   const data = new carditemmodel(
-    "https://i.ibb.co/P68znF8/Screen-Shot-2022-08-10-at-17-33-55.png",
-    "HRV 1,5E CVT matic warna abu2 metalik thn 2017",
-    "081210959995"
+    img === undefined ? 'https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5d35eacaf1176b0008974b54%2F0x0.jpg%3FcropX1%3D790%26cropX2%3D5350%26cropY1%3D784%26cropY2%3D3349' : img,
+    title === undefined ? 'asdasd' : title,
+    phone === undefined ? '081210959995' : phone
   )
   
   const labeltitle = (params) => {
@@ -22,7 +22,7 @@ const Carditem = ({img,title,price}) => {
   const holderimage = (params) => {
     return(
       <img src={params} 
-      alt="Girl in a jacket" 
+      alt="image" 
       style={{
         width: '100%',
         height: size.width < 450 ? '12rem' : '8rem',
@@ -66,7 +66,7 @@ const Carditem = ({img,title,price}) => {
         padding: 5,
       }}>
         {labeltitle(data.title)}
-        {holderprice(data.price)}
+        {holderprice(data.phone)}
       </div>
     </div>
   )

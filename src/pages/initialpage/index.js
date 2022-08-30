@@ -1,7 +1,21 @@
+import * as React from "react";
 import { Banner, Bodywrapper } from "../../components";
+import { CarListReady } from "../../services/apiv1";
 import { Carditem } from "./carditem";
 
 const Index = () => {
+  const [listdatatosell, setlistdatatosell] = React.useState(null)
+
+  React.useEffect(() => {
+    fetchlist()
+  },[])
+
+  const fetchlist = async () => {
+    const respdatas = await CarListReady()
+    console.log(respdatas);
+    setlistdatatosell(respdatas)
+  }
+
   return(
     <Bodywrapper>
       <Banner />
@@ -35,7 +49,13 @@ const Index = () => {
         gap: '2rem',
         justifyContent: 'center'
       }}>
-        <Carditem />
+        {listdatatosell != null && listdatatosell.statusmessage === 'succesful' && (
+          listdatatosell.data.map((i,x) => (
+            <React.Fragment key={x}>
+              <Carditem title={i.kendaraan_sales_judul} img={i.kendaraan_gambar} />
+            </React.Fragment>
+          ))
+        )}
       </div>
     </Bodywrapper>
   )

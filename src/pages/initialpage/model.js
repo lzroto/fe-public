@@ -1,8 +1,8 @@
 class carditemmodel {
-  constructor(img,title,price){
+  constructor(img,title,phone){
     this.img = img;
     this.title = title;
-    this.price = price;
+    this.phone = phone;
   }
 }
 
