@@ -45,7 +45,7 @@ const Index = () => {
     if (x.status === 200) {
       setlistdatatosell(x)
     } else {
-      setlistdatatosell([])
+      setlistdatatosell(null)
     }
     console.log('carimobil',x);
   }
