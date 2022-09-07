@@ -145,8 +145,6 @@ const Index = () => {
             </React.Fragment>
           ))}
       </div>
-
-      <SellCar />
     </Bodywrapper>
   );
 };
