@@ -1,7 +1,7 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 import { sampledata } from "../../sampledata";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 
 export const SellCar = () => {
   const [car] = useState(sampledata);
@@ -243,7 +243,7 @@ export const SellCar = () => {
               marginTop: "1rem",
             }}
           >
-            <NumberFormat displayType={"text"} thousandSeparator={true} prefix={"Rp."} value={price.reduce((a, b) => a + b, 0) / price.length} />
+            <NumericFormat displayType={"text"} thousandSeparator={true} prefix={"Rp."} value={price.reduce((a, b) => a + b, 0) / price.length} />
           </div>
         )}
       </div>
