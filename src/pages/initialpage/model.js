@@ -1,10 +1,11 @@
 class carditemmodel {
-  constructor(img, title, phone, price) {
+  constructor(img,title,phone){
     this.img = img;
     this.title = title;
     this.phone = phone;
-    this.price = price;
   }
 }
 
-export { carditemmodel };
+export {
+  carditemmodel
+}

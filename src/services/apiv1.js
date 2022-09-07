@@ -1,100 +1,100 @@
 export const CarListReady = async () => {
   try {
-    const URL = "https://lzroto-be.herokuapp.com/api/v1/mobil/get_list_mobil_ready";
+    const URL = 'https://lzroto-be.herokuapp.com/api/v1/mobil/get_list_mobil_ready'
     const CONFIG = {
       headers: {
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im51Z3JvaG8uYWFsZGlAZ21haWwuY29tIiwidGltZSI6IjIwMjItMDgtMDhUMDk6MTE6NDErMDc6MDAiLCJpYXQiOjE2NTk5MjQ3MDF9.oxvlBIFp2ZLIBSSwu4StGZ5lMHlTAEGPAvCLcNWo_z8",
-        app_version: "devlzrotoappsukses",
-      },
-    };
-    const resp = await fetch(URL, CONFIG);
-    const respdataraw = await resp.json();
-    const respdata = respdataraw.data;
-    const respstatus = resp.status;
+        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im51Z3JvaG8uYWFsZGlAZ21haWwuY29tIiwidGltZSI6IjIwMjItMDgtMDhUMDk6MTE6NDErMDc6MDAiLCJpYXQiOjE2NTk5MjQ3MDF9.oxvlBIFp2ZLIBSSwu4StGZ5lMHlTAEGPAvCLcNWo_z8',
+        app_version: 'devlzrotoappsukses'
+      }
+    }
+    const resp = await fetch(URL,CONFIG)
+    const respdataraw = await resp.json()
+    const respdata = respdataraw.data
+    const respstatus = resp.status
     if (respstatus >= 200 || respstatus < 300) {
       return {
         data: respdata,
-        message: "succesful",
-        statusmessage: "succesful",
-        status: 200,
-      };
+        message: 'succesful',
+        statusmessage: 'succesful',
+        status: 200
+      }
     } else if (respstatus >= 400 || respstatus < 500) {
       return {
         data: null,
-        message: "unsuccessful",
-        statusmessage: "unsuccessful",
-        status: 400,
-      };
+        message: 'unsuccessful',
+        statusmessage: 'unsuccessful',
+        status: 400
+      }
     } else if (respstatus >= 500 || respstatus < 600) {
       return {
         data: null,
-        message: "unsuccessful",
-        statusmessage: "unsuccessful",
-        status: 500,
-      };
+        message: 'unsuccessful',
+        statusmessage: 'unsuccessful',
+        status: 500
+      }
     } else {
-      throw "error";
+      throw 'error'
     }
   } catch (error) {
     return {
       data: null,
-      message: "unsuccessful",
-      statusmessage: "unsuccessful",
-      status: -1,
-    };
+      message: 'unsuccessful',
+      statusmessage: 'unsuccessful',
+      status: -1
+    }
   }
-};
+}
 
 export const findmobildetail = async (value) => {
   try {
-    const URL = "https://lzroto-be.herokuapp.com/api/v1/mobil/findstokmobil";
+    const URL = 'https://lzroto-be.herokuapp.com/api/v1/mobil/findstokmobil'
     const CONFIG = {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
-        "Cache-Control": "no-cache",
-        "Content-Type": "application/json",
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im51Z3JvaG8uYWFsZGlAZ21haWwuY29tIiwidGltZSI6IjIwMjItMDgtMDhUMDk6MTE6NDErMDc6MDAiLCJpYXQiOjE2NTk5MjQ3MDF9.oxvlBIFp2ZLIBSSwu4StGZ5lMHlTAEGPAvCLcNWo_z8",
-        app_version: "devlzrotoappsukses",
+        'Cache-Control': 'no-cache',
+        'Content-Type': 'application/json',
+        'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im51Z3JvaG8uYWFsZGlAZ21haWwuY29tIiwidGltZSI6IjIwMjItMDgtMDhUMDk6MTE6NDErMDc6MDAiLCJpYXQiOjE2NTk5MjQ3MDF9.oxvlBIFp2ZLIBSSwu4StGZ5lMHlTAEGPAvCLcNWo_z8',
+        'app_version': 'devlzrotoappsukses'
       },
-      body: JSON.stringify(value),
-    };
-    const resp = await fetch(URL, CONFIG);
-    const respdataraw = await resp.json();
+      body: JSON.stringify(value)
+    }
+    const resp = await fetch(URL,CONFIG)
+    const respdataraw = await resp.json()
     console.log(respdataraw);
-    const respdata = respdataraw.data;
-    const respstatus = resp.status;
+    const respdata = respdataraw.data
+    const respstatus = resp.status
     console.log(respstatus);
     if (respstatus >= 200 && respstatus < 300) {
       return {
         data: respdata,
-        message: "succesful",
-        statusmessage: "succesful",
-        status: 200,
-      };
+        message: 'succesful',
+        statusmessage: 'succesful',
+        status: 200
+      }
     } else if (respstatus >= 400 && respstatus < 500) {
       return {
         data: null,
-        message: "unsuccessful",
-        statusmessage: "unsuccessful",
-        status: 400,
-      };
+        message: 'unsuccessful',
+        statusmessage: 'unsuccessful',
+        status: 400
+      }
     } else if (respstatus >= 500 && respstatus < 600) {
       return {
         data: null,
-        message: "unsuccessful",
-        statusmessage: "unsuccessful",
-        status: 500,
-      };
+        message: 'unsuccessful',
+        statusmessage: 'unsuccessful',
+        status: 500
+      }
     } else {
-      throw "error";
+      throw 'error'
     }
   } catch (error) {
     console.log(error);
     return {
       data: null,
-      message: "unsuccessful",
-      statusmessage: "unsuccessful",
-      status: -1,
-    };
+      message: 'unsuccessful',
+      statusmessage: 'unsuccessful',
+      status: -1
+    }
   }
-};
+}
