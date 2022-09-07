@@ -1,6 +1,7 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 import { sampledata } from "../../sampledata";
+import { NumericFormat } from "react-number-format";
 
 export const SellCar = () => {
   const [car] = useState(sampledata);
@@ -94,13 +95,6 @@ export const SellCar = () => {
     });
 
     setPrice(priceList);
-  };
-
-  const Harga = (number) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(number);
   };
 
   return (
@@ -249,7 +243,7 @@ export const SellCar = () => {
               marginTop: "1rem",
             }}
           >
-            {Harga(price.reduce((a, b) => a + b, 0) / price.length)}
+            <NumericFormat displayType={"text"} thousandSeparator={true} prefix={"Rp."} value={price.reduce((a, b) => a + b, 0) / price.length} />
           </div>
         )}
       </div>
