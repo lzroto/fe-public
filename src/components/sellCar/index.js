@@ -3,6 +3,14 @@ import { useState } from "react";
 import { sampledata } from "../../sampledata";
 
 export const SellCar = () => {
+  const [form, setForm] = useState({
+    merk: "",
+    name: "",
+    year: "",
+    typeCar: "",
+    typeMachine: "",
+    typeTransmission: "",
+  });
   const [car] = useState(sampledata);
   const [name, setName] = useState([]);
   const [detail, setDetail] = useState([]);
@@ -14,6 +22,7 @@ export const SellCar = () => {
 
   const handleMerk = (e) => {
     const value = e.target.value;
+    setForm({ ...form, merk: value });
     const filtered = car.filter((car) => {
       return car.merek === value;
     });
@@ -23,6 +32,7 @@ export const SellCar = () => {
 
   const handleName = (e) => {
     const value = e.target.value;
+    setForm({ ...form, name: value });
     const filtered = name.filter((name) => {
       return name.detail_merek === value;
     });
@@ -38,6 +48,7 @@ export const SellCar = () => {
 
   const handleYear = (e) => {
     const value = e.target.value;
+    setForm({ ...form, year: value });
     const filltered2 = detail.filter((detail) => {
       return detail.tahun === value;
     });
@@ -53,6 +64,7 @@ export const SellCar = () => {
 
   const handleTypeCar = (e) => {
     const value = e.target.value;
+    setForm({ ...form, typeCar: value });
     const filltered2 = detail.filter((detail) => {
       return detail.tipe === value;
     });
@@ -68,6 +80,7 @@ export const SellCar = () => {
 
   const handleTypeMachine = (e) => {
     const value = e.target.value;
+    setForm({ ...form, typeMachine: value });
     const filltered2 = detail.filter((detail) => {
       return detail.mesin === value;
     });
@@ -83,6 +96,7 @@ export const SellCar = () => {
 
   const handleTypeTransmission = (e) => {
     const value = e.target.value;
+    setForm({ ...form, typeTransmission: value });
     const filltered2 = detail.filter((detail) => {
       return detail.transmisi === value;
     });
@@ -134,11 +148,7 @@ export const SellCar = () => {
       >
         <FormControl variant="standard" sx={{ minWidth: 194 }}>
           <InputLabel>Merek Mobil</InputLabel>
-          <Select
-            // value={inputmerekmbl}
-            onChange={handleMerk}
-            label="platMobil"
-          >
+          <Select name="merk" value={form.merk} onChange={handleMerk} label="platMobil">
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
@@ -151,11 +161,7 @@ export const SellCar = () => {
         </FormControl>
         <FormControl variant="standard" sx={{ minWidth: 194 }}>
           <InputLabel>Detail Mobil</InputLabel>
-          <Select
-            // value={inputdetailmbl}
-            onChange={handleName}
-            label="platMobil"
-          >
+          <Select name="name" value={form.name} onChange={handleName} label="platMobil">
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
@@ -168,11 +174,7 @@ export const SellCar = () => {
         </FormControl>
         <FormControl variant="standard" sx={{ minWidth: 194 }}>
           <InputLabel>Tahun Mobil</InputLabel>
-          <Select
-            // value={inputtahunmbl}
-            onChange={handleYear}
-            label="platMobil"
-          >
+          <Select name="year" value={form.year} onChange={handleYear} label="platMobil">
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
@@ -185,11 +187,7 @@ export const SellCar = () => {
         </FormControl>
         <FormControl variant="standard" sx={{ minWidth: 194 }}>
           <InputLabel>Tipe Mobil</InputLabel>
-          <Select
-            // value={inputtipembl}
-            onChange={handleTypeCar}
-            label="platMobil"
-          >
+          <Select name="typeCar" value={form.typeCar} onChange={handleTypeCar} label="platMobil">
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
@@ -202,11 +200,7 @@ export const SellCar = () => {
         </FormControl>
         <FormControl variant="standard" sx={{ minWidth: 194 }}>
           <InputLabel>Jenis Mesin</InputLabel>
-          <Select
-            // value={inputmesinmbl}
-            onChange={handleTypeMachine}
-            label="platMobil"
-          >
+          <Select name="typeMachine" value={form.typeMachine} onChange={handleTypeMachine} label="platMobil">
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
@@ -219,11 +213,7 @@ export const SellCar = () => {
         </FormControl>
         <FormControl variant="standard" sx={{ minWidth: 194 }}>
           <InputLabel>Transmisi</InputLabel>
-          <Select
-            // value={inputtransmisimbl}
-            onChange={handleTypeTransmission}
-            label="platMobil"
-          >
+          <Select name="typeTransmission" value={form.typeTransmission} onChange={handleTypeTransmission} label="platMobil">
             <MenuItem value="">
               <em>None</em>
             </MenuItem>

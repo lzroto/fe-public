@@ -13,12 +13,14 @@ const Header = () => {
       </div>
       <div
         style={{
+          display: "flex",
           backgroundColor: "#DB3E53",
           padding: 8,
           paddingTop: 12,
           paddingBottom: 12,
           fontSize: 30,
           fontWeight: "bold",
+          justifyContent: "space-between",
         }}
       >
         LZR OTO
