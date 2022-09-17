@@ -97,6 +97,7 @@ const Index = () => {
           borderStyle: "solid",
         }}
       >
+        Cari Berdasarkan :
         <div
           style={{
             display: "flex",
@@ -104,9 +105,8 @@ const Index = () => {
             alignItems: "center",
           }}
         >
-          Cari Berdasarkan :
-          <FormControl variant="standard" sx={{ minWidth: 194 }}>
-            <InputLabel>Tahun Mobil</InputLabel>
+          <FormControl variant="standard" sx={{ minWidth: 70 }}>
+            <InputLabel>Tahun</InputLabel>
             <Select size="small" name="cars" id="cars" defaultValue="" onChange={(val) => setfilteredyear(val)}>
               <MenuItem value={""}>Tahun</MenuItem>
               {[...Array(new Date().getFullYear())]
@@ -121,9 +121,9 @@ const Index = () => {
                 .reverse()}
             </Select>
           </FormControl>
-          <TextField type={"search"} onChange={(val) => setmerekmobil(val)} size="small" variant="standard" label="Merek Mobil" />
-          <TextField type={"search"} onChange={(val) => setwarnamobil(val)} size="small" variant="standard" label="Warna Mobil" />
-          <Button type={"button"} onClick={() => carimobil()} variant="outlined">
+          <TextField type={"search"} onChange={(val) => setmerekmobil(val)} sx={{ width: 90 }} variant="standard" label="Merek" />
+          <TextField type={"search"} onChange={(val) => setwarnamobil(val)} sx={{ width: 90 }} variant="standard" label="Warna" />
+          <Button type={"button"} onClick={() => carimobil()} size="small" variant="outlined">
             cari
           </Button>
         </div>

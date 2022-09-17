@@ -227,8 +227,16 @@ export const SellCar = () => {
 
         <div
           style={{
+            fontWeight: "lighter",
+            fontSize: "50%",
+            marginTop: "1rem",
+          }}
+        >
+          *Harga Dibawah Hanyalah Estimasi, Tergantung Kondisi Mobil*
+        </div>
+        <div
+          style={{
             fontWeight: "bold",
-            marginTop: "1.5rem",
           }}
         >
           Estimasi Harga :
